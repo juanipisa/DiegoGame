@@ -7,7 +7,7 @@ public class Fruta extends Cuadrado{
 	private static int figurita=0;
 
 	public Fruta(int x, int y, PImage imagen) {
-		super(x, y, 50, 0, 255, 0, imagen);
+		super(x, y, 50, imagen);
 		this.comido = false;
 		Fruta.cantidadDeFrutas++;
 	}
@@ -26,11 +26,10 @@ public class Fruta extends Cuadrado{
 		{
 			this.comido = true;
 			this.lado = 0;
-			j.aumentarVelocidad();
 		}
 	}
 	
-	public static void crarNuevaFruta(Principal pantalla)
+	public static void crearNuevaFruta(Principal pantalla)
 	{
 		boolean crearNueva = true;
 		for( Cuadrado actual : pantalla.a )
@@ -43,11 +42,11 @@ public class Fruta extends Cuadrado{
 		
 		if( crearNueva ) {
 			if(figurita==0) {
-				pantalla.a.add(new Fruta((int)pantalla.random(0, pantalla.AnchoPantalla - 25), (int)pantalla.random(0, pantalla.AltoPantalla -25), pantalla.imagenMessi));
+				pantalla.a.add(new Fruta((int)pantalla.random(0, pantalla.AnchoPantalla - 50), (int)pantalla.random(0, pantalla.AltoPantalla -50), pantalla.imagenMessi));
 				figurita=1;
 			}
 			else {
-				pantalla.a.add(new Fruta((int)pantalla.random(0, pantalla.AnchoPantalla - 25), (int)pantalla.random(0, pantalla.AltoPantalla -25), pantalla.imagenAguero));
+				pantalla.a.add(new Fruta((int)pantalla.random(0, pantalla.AnchoPantalla - 50), (int)pantalla.random(0, pantalla.AltoPantalla -50), pantalla.imagenAguero));
 				figurita=0;
 			}
 
