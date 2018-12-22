@@ -5,6 +5,7 @@ import processing.core.PImage;
 
 public class Principal extends PApplet{
 	
+	boolean reiniciar = false;
 	public int AnchoPantalla = 800, AltoPantalla = 500;
 	private PImage imagenDiego;
 	Vector <Cuadrado> a;
@@ -52,19 +53,29 @@ public class Principal extends PApplet{
 	
 	public void draw() {
 		
-		clear();
-		image(imagenFondo,0,0,800,40);
-		for( Cuadrado actual : a )
-		{
-			actual.actualizar(this);
-		}
-		for( Cuadrado actual : vectorVidas )
-		{
-			actual.actualizar(this);
+		
+		if(reiniciar == false) {
+			
+			clear();
+			image(imagenFondo,0,0,800,40);
+			for( Cuadrado actual : a )
+			{
+				actual.actualizar(this);
+			}
+			for( Cuadrado actual : vectorVidas )
+			{
+				actual.actualizar(this);
+			}
+			
+			Fruta.crearNuevaFruta(this);
+			mostrarPuntajeYvidas();
 		}
 		
-		Fruta.crearNuevaFruta(this);
-		mostrarPuntajeYvidas();
+		else {
+			System.exit(0);
+		}
+		
+		
 	}
 		
 	public void mostrarPuntajeYvidas()

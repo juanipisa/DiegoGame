@@ -38,12 +38,13 @@ public class Jugador extends Cuadrado{
 		pantalla.text("¿Desea volver a jugar?", 240,400);
 		pantalla.text("R: Si", 270,450);
 		pantalla.text("E: Salir", 390,450);
+		if(pantalla.key == 'e') {
+			pantalla.reiniciar =  true;
+		}
+		else if(pantalla.key == 'r') {
+			pantalla.reiniciar = false;
+		}
 		
-		try {
-            Thread.sleep(1000);
-         } catch (Exception e) {
-            System.out.println(e);
-         }	
 	}
 
 	private void moverse()
@@ -62,7 +63,6 @@ public class Jugador extends Cuadrado{
 			if( pantalla.key == 'a' ) direccion = 1;
 			if( pantalla.key == 's' ) direccion = 2;
 			if( pantalla.key == 'd' ) direccion = 3;
-			if( pantalla.key == 'e' ) System.exit(0);
 		}
 	}
 	
